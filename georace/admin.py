@@ -1,3 +1,12 @@
 from django.contrib import admin
+from georace.models import *
 
-# Register your models here.
+
+class UserAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(User, UserAdmin)
+
+
+class EventAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Event, EventAdmin)
