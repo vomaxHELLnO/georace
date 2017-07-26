@@ -25,7 +25,7 @@ SECRET_KEY = '87e16v7yk!u$3)aonx(k&@u&_h8d0478ybp-g**8hi@7y^ih(l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['georace.eu', 'www.georace.eu']
+ALLOWED_HOSTS = ['georace.eu', 'www.georace.eu', '127.0.0.1', 'localhost']
 
 
 # Application definition

@@ -20,6 +20,17 @@
 
 <script type="text/javascript">
     $(function(){ // I use jQuery in this example
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                 alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
+            },
+            function(error){
+                 alert(error.message);
+            }, {
+                 enableHighAccuracy: true
+                      ,timeout : 5000
+            }
+        );
       document.getElementById('event_geoloc').onclick = function() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
