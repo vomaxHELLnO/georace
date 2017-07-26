@@ -25,7 +25,7 @@ SECRET_KEY = '87e16v7yk!u$3)aonx(k&@u&_h8d0478ybp-g**8hi@7y^ih(l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['georace.eu', 'www.georace.eu']
 
 
 # Application definition
@@ -120,3 +120,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join('..', BASE_DIR, 'static')
