@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Sample "Hello, World" Application</title>
+  </head>
+  <body bgcolor=white>
+      {% include "menu.html" %}
+
+      {% block content %}{% endblock %}
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){ // I use jQuery in this example
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                 alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
+            },
+            function(error){
+                 alert(error.message);
+            }, {
+                 enableHighAccuracy: true
+                      ,timeout : 5000
+            }
+        );
+      document.getElementById('event_geoloc').onclick = function() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            alert('Geolocation is not supported by this browser.');
+          };
+        };
+    });
+    function showPosition(position) {
+      alert('Latitude: ' + position.coords.latitude +
+            '<br>Longitude: ' + position.coords.longitude);
+    };
+</script>
+</html>
