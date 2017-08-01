@@ -11,21 +11,21 @@ def index(request):
 
 def events(request):
     events = Event.objects.all()
-    return render(request, 'index.html', {
+    return render(request, 'events.html', {
         'events': events,
         'active': 'events'
     })
 
-def about(request):
+def contacts(request):
     events = Event.objects.all()
-    return render(request, 'index.html', {
+    return render(request, 'contacts.html', {
         'events': events,
-        'active': 'about'
+        'active': 'contacts'
     })
 
 def donate(request):
     events = Event.objects.all()
-    return render(request, 'index.html', {
+    return render(request, 'donate.html', {
         'events': events,
         'active': 'donate'
     })

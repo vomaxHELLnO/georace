@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <table border="0" cellpadding="10">
+      <tr>
+        <td>
+          <h2>Geoloc testing</h3>
+          <ul>
+              <a href="">Search</a> | 
+              <a href="">My events</a>
+              </br>
+              <input type="text" name="country" size="2" placeholder="Country"></input>
+              <input type="text" name="city" size="2" placeholder="City"></input>
+              <input type="checkbox" name="event_ended"> Ended events</input>
+              </br>
+          </ul>
+          <ul>
+          {% for event in events %}
+          <button id="event_geoloc"> <li>{{event.place}} : {{event.geotag}}</li> </button>
+          {% endfor %}
+          </ul>
+        </td>
+      </tr>
+    </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){ // I use jQuery in this example
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                 alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
+            },
+            function(error){
+                 alert(error.message);
+            }, {
+                 enableHighAccuracy: true
+                      ,timeout : 5000
+            }
+        );
+      document.getElementById('event_geoloc').onclick = function() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            alert('Geolocation is not supported by this browser.');
+          };
+        };
+    });
+    function showPosition(position) {
+      alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
+    };
+</script>
+{% endblock %}

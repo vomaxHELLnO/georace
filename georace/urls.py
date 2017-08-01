@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^home/$', views.index),
     url(r'^events/$', views.events),
-    url(r'^about/$', views.about),
+    url(r'^contacts/$', views.contacts),
     url(r'^donate/$', views.donate),
 
     url(r'^admin/', admin.site.urls),

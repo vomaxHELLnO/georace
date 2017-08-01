@@ -1,38 +1,14 @@
 <html>
   <head>
-    <title>Sample "Hello, World" Application</title>
+    <title>Destinations family</title>
   </head>
   <body bgcolor=white>
+    <div id="header" role="banner">
+      <input type="text" name="ID" size="5" placeholder="Username"></input>
+      <input type="text" name="PW" size="5" placeholder="Password"></input>
+      <a class="choice" href="">Log in/Log out/Reg</a>
+    </div>
       {% include "menu.html" %}
-
       {% block content %}{% endblock %}
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-
-<script type="text/javascript">
-    $(function(){ // I use jQuery in this example
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                 alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
-            },
-            function(error){
-                 alert(error.message);
-            }, {
-                 enableHighAccuracy: true
-                      ,timeout : 5000
-            }
-        );
-      document.getElementById('event_geoloc').onclick = function() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-          } else {
-            alert('Geolocation is not supported by this browser.');
-          };
-        };
-    });
-    function showPosition(position) {
-      alert('Latitude: ' + position.coords.latitude +
-            '<br>Longitude: ' + position.coords.longitude);
-    };
-</script>
 </html>
