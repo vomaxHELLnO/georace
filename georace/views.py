@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from georace.models import Event
-# Create your views here.
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 def index(request):
-    events = Event.objects.all()
     return render(request, 'index.html', {
-        'events': events,
         'active': 'home'
     })
 
@@ -17,15 +16,26 @@ def events(request):
     })
 
 def contacts(request):
-    events = Event.objects.all()
     return render(request, 'contacts.html', {
-        'events': events,
         'active': 'contacts'
     })
 
 def donate(request):
-    events = Event.objects.all()
     return render(request, 'donate.html', {
-        'events': events,
         'active': 'donate'
     })
+
+def register(request):
+    if request.method =='POST':
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return render(request,
+                'index.html', {
+                'active': 'home'
+            })
+    else:
+        form = UserCreationForm() # An unbound form
+
+    return render(request, 'registration/register.html', {'form': form})

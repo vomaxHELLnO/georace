@@ -4,9 +4,10 @@
   </head>
   <body bgcolor=white>
     <div id="header" role="banner">
-      <input type="text" name="ID" size="5" placeholder="Username"></input>
-      <input type="text" name="PW" size="5" placeholder="Password"></input>
+      {% if user.is_authenticated %} {{user.username}}
+      {% else %}
       <a class="choice" href="">Log in/Log out/Reg</a>
+      {% endif %}
     </div>
       {% include "menu.html" %}
       {% block content %}{% endblock %}
